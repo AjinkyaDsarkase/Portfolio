@@ -173,8 +173,8 @@ export interface EducationEntry {
 export const education: EducationEntry[] = [
   {
     degree: 'Bachelor of Engineering',
-    institution: '[YOUR INSTITUTION NAME HERE]', // PLACEHOLDER
-    year: '[YOUR GRADUATION YEAR HERE]', // PLACEHOLDER
+    institution: 'Vishwakarma Institute of Technology,Pune', // PLACEHOLDER
+    year: 'Dec 2020', // PLACEHOLDER
   },
 ];
 
