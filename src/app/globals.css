@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Background lives on BackgroundEffects (a fixed, negative-z layer) instead of here —
+       body must stay transparent or it would paint in front of that fixed layer. */
+    @apply text-slate-900 antialiased dark:text-slate-100;
+  }
+
+  ::selection {
+    @apply bg-accent-200 text-accent-900 dark:bg-accent-800 dark:text-accent-50;
+  }
+
+  /* Keep a visible focus ring for keyboard users without adding one on mouse click. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-950;
+  }
+}
+
+@layer utilities {
+  .container-narrow {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8;
+  }
+}
