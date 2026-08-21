@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Lexend } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import { themeInitScript } from '@/lib/theme-script';
 import { personalInfo } from '@/data/data';
@@ -8,12 +8,6 @@ import { BackgroundEffects } from '@/components/BackgroundEffects';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
-});
-
-const lexend = Lexend({
-  subsets: ['latin'],
-  variable: '--font-lexend',
   display: 'swap',
 });
 
@@ -83,7 +77,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${lexend.variable}`} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         {/* Prevents a flash of the wrong theme by setting the class before paint. */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />

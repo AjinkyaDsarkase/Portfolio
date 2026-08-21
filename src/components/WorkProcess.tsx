@@ -33,12 +33,17 @@ export function WorkProcess() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.4, delay: index * 0.06 }}
-                className="reveal relative flex flex-col items-center text-center"
+                className="reveal group relative flex flex-col items-center text-center"
               >
-                <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full border-2 border-accent-200 bg-white text-accent-600 shadow-sm dark:border-accent-800 dark:bg-slate-900 dark:text-accent-400">
+                <motion.div
+                  whileHover={{ scale: 1.12, y: -4 }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+                  className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full border-2 border-accent-200 bg-white text-accent-600 shadow-sm transition-colors group-hover:border-accent-600 group-hover:bg-accent-600 group-hover:text-white dark:border-accent-800 dark:bg-slate-900 dark:text-accent-400 dark:group-hover:border-accent-500 dark:group-hover:bg-accent-500"
+                >
                   <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
-                </div>
-                <p className="mt-4 text-xs font-semibold tracking-widest text-accent-500 dark:text-accent-400">
+                </motion.div>
+                <p className="mt-4 text-sm font-semibold tracking-widest text-accent-500 dark:text-accent-400">
                   0{index + 1}
                 </p>
                 <h3 className="mt-1 font-display text-base font-semibold text-slate-900 dark:text-white">

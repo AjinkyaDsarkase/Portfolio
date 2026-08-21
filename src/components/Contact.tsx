@@ -178,9 +178,12 @@ export function Contact() {
                 )}
               </div>
 
-              <button
+              <motion.button
                 type="submit"
                 disabled={status === 'submitting'}
+                whileHover={status !== 'submitting' ? { scale: 1.03, y: -1 } : undefined}
+                whileTap={status !== 'submitting' ? { scale: 0.97 } : undefined}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-700 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               >
                 {status === 'submitting' ? (
@@ -191,7 +194,7 @@ export function Contact() {
                 ) : (
                   'Send Message'
                 )}
-              </button>
+              </motion.button>
 
               {status === 'success' && (
                 <p
