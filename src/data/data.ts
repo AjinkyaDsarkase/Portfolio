@@ -39,7 +39,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: 'State Management',
-    skills: ['Zustand', 'React Context'],
+    skills: ['React Context', 'Zustand', 'Redux', 'Redux Toolkit'],
   },
   {
     category: 'API & Auth',

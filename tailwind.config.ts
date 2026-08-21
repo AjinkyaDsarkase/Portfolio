@@ -21,8 +21,10 @@ const config: Config = {
         },
       },
       fontFamily: {
+        // `display` is kept as an alias (used on headings) but now points at the
+        // same Inter stack as `sans`, so the whole site renders in one typeface.
         sans: ['var(--font-inter)', 'sans-serif'],
-        display: ['var(--font-lexend)', 'sans-serif'],
+        display: ['var(--font-inter)', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
