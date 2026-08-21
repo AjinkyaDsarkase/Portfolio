@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { navLinks, personalInfo } from '@/data/data';
 
@@ -24,31 +27,40 @@ export function Footer() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <a
+          <motion.a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.92 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
             className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-accent-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-700 dark:hover:bg-slate-800 dark:hover:text-white"
           >
             <Github className="h-5 w-5" aria-hidden="true" />
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.92 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
             className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-accent-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-700 dark:hover:bg-slate-800 dark:hover:text-white"
           >
             <Linkedin className="h-5 w-5" aria-hidden="true" />
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href={`mailto:${personalInfo.email}`}
             aria-label="Send an email"
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.92 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
             className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-accent-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-700 dark:hover:bg-slate-800 dark:hover:text-white"
           >
             <Mail className="h-5 w-5" aria-hidden="true" />
-          </a>
+          </motion.a>
         </div>
       </div>
 

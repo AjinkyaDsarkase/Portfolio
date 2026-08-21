@@ -29,6 +29,8 @@ export function ScrollToTop() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
+          whileHover={{ scale: 1.1, y: -2 }}
+          whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2 }}
           className="fixed bottom-6 right-6 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent-600 text-white shadow-lg transition-colors hover:bg-accent-700"
         >
