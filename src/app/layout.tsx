@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { themeInitScript } from '@/lib/theme-script';
 import { personalInfo } from '@/data/data';
 import { BackgroundEffects } from '@/components/BackgroundEffects';
 
-const inter = Inter({
-  subsets: ['latin'],
+// Self-hosted Inter (variable weight, latin subset) — avoids a build-time fetch to
+// fonts.gstatic.com, which was unreliable in this environment. Same --font-inter
+// CSS variable as before, so nothing downstream (Tailwind's font-sans/font-display) changes.
+const inter = localFont({
+  src: '../fonts/Inter-Variable.woff2',
   variable: '--font-inter',
   display: 'swap',
+  weight: '100 900',
 });
 
 const description =

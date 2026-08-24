@@ -14,7 +14,7 @@ import { Label } from './ui/label';
 import { Button } from './ui/button';
 import { formspreeEndpoint, personalInfo } from '@/data/data';
 
-const MotionButton = motion(Button);
+const MotionButton = motion.create(Button);
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Please enter your name'),
