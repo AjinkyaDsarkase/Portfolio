@@ -13,7 +13,18 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const activeId = useActiveSection(sectionIds);
 
-  const closeMenu = () => setMenuOpen(false);
+  // Closing the mobile menu animates its height to 0 over 200ms. If we let the
+  // native anchor jump fire at the same time, that layout shift cancels the
+  // in-progress smooth scroll (it looks like the link just does nothing). So we
+  // close the menu first, then scroll once its collapse animation has finished.
+  const handleMobileLinkClick = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const id = href.replace('#', '');
+    window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 220);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-950/80">
@@ -83,7 +94,7 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={closeMenu}
+                    onClick={handleMobileLinkClick(link.href)}
                     aria-current={isActive ? 'true' : undefined}
                     className={`rounded-md px-3 py-2.5 text-base font-medium ${
                       isActive
