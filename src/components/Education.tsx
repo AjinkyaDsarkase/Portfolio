@@ -1,6 +1,6 @@
 import { GraduationCap } from 'lucide-react';
 import { Section } from './Section';
-import { Card } from './Card';
+import { Card } from './ui/card';
 import { education } from '@/data/data';
 
 export function Education() {
@@ -8,7 +8,7 @@ export function Education() {
     <Section id="education" title="Education" eyebrow="Academic background">
       <div className="space-y-4">
         {education.map((entry) => (
-          <Card as="article" key={entry.degree}>
+          <Card key={entry.degree} className="p-6">
             <div className="flex items-center gap-4">
               <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-accent-50 text-accent-600 dark:bg-accent-950 dark:text-accent-400">
                 <GraduationCap className="h-5 w-5" aria-hidden="true" />
