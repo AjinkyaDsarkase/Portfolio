@@ -7,8 +7,14 @@ import { z } from 'zod';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Github, Linkedin, Loader2, Mail, MapPin, Phone, XCircle } from 'lucide-react';
 import { Section } from './Section';
-import { Card } from './Card';
+import { Card } from './ui/card';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { Label } from './ui/label';
+import { Button } from './ui/button';
 import { formspreeEndpoint, personalInfo } from '@/data/data';
+
+const MotionButton = motion(Button);
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Please enter your name'),
@@ -114,19 +120,16 @@ export function Contact() {
           transition={{ duration: 0.4 }}
           className="reveal lg:col-span-3"
         >
-          <Card as="article">
+          <Card className="p-6">
             <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
               <div>
-                <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">
-                  Name
-                </label>
-                <input
+                <Label htmlFor="name">Name</Label>
+                <Input
                   id="name"
                   type="text"
                   autoComplete="name"
                   aria-invalid={errors.name ? 'true' : 'false'}
                   aria-describedby={errors.name ? 'name-error' : undefined}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   placeholder="Your name"
                   {...register('name')}
                 />
@@ -138,16 +141,13 @@ export function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">
-                  Email
-                </label>
-                <input
+                <Label htmlFor="email">Email</Label>
+                <Input
                   id="email"
                   type="email"
                   autoComplete="email"
                   aria-invalid={errors.email ? 'true' : 'false'}
                   aria-describedby={errors.email ? 'email-error' : undefined}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   placeholder="you@example.com"
                   {...register('email')}
                 />
@@ -159,15 +159,12 @@ export function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">
-                  Message
-                </label>
-                <textarea
+                <Label htmlFor="message">Message</Label>
+                <Textarea
                   id="message"
                   rows={5}
                   aria-invalid={errors.message ? 'true' : 'false'}
                   aria-describedby={errors.message ? 'message-error' : undefined}
-                  className="w-full resize-none rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   placeholder="Tell me about your project..."
                   {...register('message')}
                 />
@@ -178,13 +175,13 @@ export function Contact() {
                 )}
               </div>
 
-              <motion.button
+              <MotionButton
                 type="submit"
                 disabled={status === 'submitting'}
                 whileHover={status !== 'submitting' ? { scale: 1.03, y: -1 } : undefined}
                 whileTap={status !== 'submitting' ? { scale: 0.97 } : undefined}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-700 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                className="w-full sm:w-auto"
               >
                 {status === 'submitting' ? (
                   <>
@@ -194,7 +191,7 @@ export function Contact() {
                 ) : (
                   'Send Message'
                 )}
-              </motion.button>
+              </MotionButton>
 
               {status === 'success' && (
                 <p

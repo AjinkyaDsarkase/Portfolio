@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { navLinks, personalInfo } from '@/data/data';
+import { buttonVariants } from '@/components/ui/button';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -35,7 +36,7 @@ export function Footer() {
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.92 }}
             transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-accent-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-700 dark:hover:bg-slate-800 dark:hover:text-white"
+            className={buttonVariants({ variant: 'icon', size: 'icon-sm' })}
           >
             <Github className="h-5 w-5" aria-hidden="true" />
           </motion.a>
@@ -47,7 +48,7 @@ export function Footer() {
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.92 }}
             transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-accent-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-700 dark:hover:bg-slate-800 dark:hover:text-white"
+            className={buttonVariants({ variant: 'icon', size: 'icon-sm' })}
           >
             <Linkedin className="h-5 w-5" aria-hidden="true" />
           </motion.a>
@@ -57,7 +58,7 @@ export function Footer() {
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.92 }}
             transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-accent-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-700 dark:hover:bg-slate-800 dark:hover:text-white"
+            className={buttonVariants({ variant: 'icon', size: 'icon-sm' })}
           >
             <Mail className="h-5 w-5" aria-hidden="true" />
           </motion.a>

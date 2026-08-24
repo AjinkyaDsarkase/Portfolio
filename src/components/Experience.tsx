@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
 import { Section } from './Section';
-import { Card } from './Card';
+import { Card } from './ui/card';
 import { experience } from '@/data/data';
 
 export function Experience() {
@@ -19,7 +19,7 @@ export function Experience() {
             transition={{ duration: 0.4, delay: index * 0.05 }}
             className="reveal"
           >
-            <Card as="article">
+            <Card className="p-6">
               <div className="flex items-start gap-4">
                 <div className="mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-accent-50 text-accent-600 dark:bg-accent-950 dark:text-accent-400">
                   <Briefcase className="h-5 w-5" aria-hidden="true" />
