@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { ExternalLink, Github } from 'lucide-react';
-import { Card } from './Card';
+import { Card, CardContent, CardDescription, CardFooter, CardTitle } from './ui/card';
 import { Tag } from './Tag';
 import { ProjectCover } from './ProjectCover';
 import type { Project } from '@/data/data';
@@ -11,7 +11,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card as="article" className="flex h-full flex-col overflow-hidden !p-0">
+    <Card className="flex h-full flex-col overflow-hidden p-0">
       {project.image ? (
         <div className="relative aspect-video">
           <Image
@@ -26,11 +26,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <ProjectCover icon={project.coverIcon} title={project.title} />
       )}
 
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-lg font-semibold text-slate-900 dark:text-white">
-          {project.title}
-        </h3>
-        <p className="text-sm font-medium text-accent-600 dark:text-accent-400">{project.subtitle}</p>
+      <CardContent className="flex flex-1 flex-col p-6">
+        <CardTitle>{project.title}</CardTitle>
+        <CardDescription>{project.subtitle}</CardDescription>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
           {project.description}
         </p>
@@ -40,49 +38,49 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Tag key={tech}>{tech}</Tag>
           ))}
         </div>
+      </CardContent>
 
-        <div className="mt-6 flex items-center gap-4 border-t border-slate-100 pt-4 dark:border-slate-800">
-          {project.liveUrl ? (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 hover:text-accent-700 dark:text-accent-400 dark:hover:text-accent-300"
-            >
-              Live Demo
-              <ExternalLink className="h-4 w-4" aria-hidden="true" />
-            </a>
-          ) : (
-            <span
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 dark:text-slate-600"
-              title="PLACEHOLDER: add live demo URL in src/data/data.ts"
-            >
-              Live Demo
-              <ExternalLink className="h-4 w-4" aria-hidden="true" />
-            </span>
-          )}
+      <CardFooter className="items-center gap-4 border-t border-slate-100 p-6 pt-4 dark:border-slate-800">
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 hover:text-accent-700 dark:text-accent-400 dark:hover:text-accent-300"
+          >
+            Live Demo
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+          </a>
+        ) : (
+          <span
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 dark:text-slate-600"
+            title="PLACEHOLDER: add live demo URL in src/data/data.ts"
+          >
+            Live Demo
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+          </span>
+        )}
 
-          {project.githubUrl ? (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
-            >
-              GitHub
-              <Github className="h-4 w-4" aria-hidden="true" />
-            </a>
-          ) : (
-            <span
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 dark:text-slate-600"
-              title="PLACEHOLDER: add GitHub repo URL in src/data/data.ts"
-            >
-              GitHub
-              <Github className="h-4 w-4" aria-hidden="true" />
-            </span>
-          )}
-        </div>
-      </div>
+        {project.githubUrl ? (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+          >
+            GitHub
+            <Github className="h-4 w-4" aria-hidden="true" />
+          </a>
+        ) : (
+          <span
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-400 dark:text-slate-600"
+            title="PLACEHOLDER: add GitHub repo URL in src/data/data.ts"
+          >
+            GitHub
+            <Github className="h-4 w-4" aria-hidden="true" />
+          </span>
+        )}
+      </CardFooter>
     </Card>
   );
 }

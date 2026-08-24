@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '@/data/data';
 import { HeroPortrait } from './HeroPortrait';
+import { buttonVariants } from './ui/button';
 
 export function Hero() {
   return (
@@ -39,7 +40,7 @@ export function Hero() {
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className="inline-flex items-center gap-2 rounded-lg bg-accent-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-700"
+                className={buttonVariants({ variant: 'default' })}
               >
                 View Projects
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -50,7 +51,7 @@ export function Hero() {
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                className={buttonVariants({ variant: 'outline' })}
               >
                 Download Resume
                 <Download className="h-4 w-4" aria-hidden="true" />
@@ -60,7 +61,7 @@ export function Hero() {
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                className="inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+                className={buttonVariants({ variant: 'ghost' })}
               >
                 Contact Me
                 <Mail className="h-4 w-4" aria-hidden="true" />
@@ -76,7 +77,7 @@ export function Hero() {
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-accent-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-700 dark:hover:bg-slate-800 dark:hover:text-white"
+                className={buttonVariants({ variant: 'icon', size: 'icon' })}
               >
                 <Github className="h-5 w-5" aria-hidden="true" />
               </motion.a>
@@ -88,7 +89,7 @@ export function Hero() {
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-accent-300 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-700 dark:hover:bg-slate-800 dark:hover:text-white"
+                className={buttonVariants({ variant: 'icon', size: 'icon' })}
               >
                 <Linkedin className="h-5 w-5" aria-hidden="true" />
               </motion.a>
