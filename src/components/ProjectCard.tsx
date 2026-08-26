@@ -40,7 +40,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </CardContent>
 
-      <CardFooter className="items-center gap-4 border-t border-slate-100 p-6 pt-4 dark:border-slate-800">
+      {/* <CardFooter className="items-center gap-4 border-t border-slate-100 p-6 pt-4 dark:border-slate-800">
         {project.liveUrl ? (
           <a
             href={project.liveUrl}
@@ -80,7 +80,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Github className="h-4 w-4" aria-hidden="true" />
           </span>
         )}
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   );
 }
