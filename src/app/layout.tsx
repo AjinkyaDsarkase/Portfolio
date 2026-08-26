@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { themeInitScript } from '@/lib/theme-script';
 import { personalInfo } from '@/data/data';
-import { BackgroundEffects } from '@/components/BackgroundEffects';
+import { BackgroundEffects } from '@/components/ui/BackgroundEffects';
 
 // Self-hosted Inter (variable weight, latin subset) — avoids a build-time fetch to
 // fonts.gstatic.com, which was unreliable in this environment. Same --font-inter

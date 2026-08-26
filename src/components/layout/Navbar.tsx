@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { navLinks, personalInfo } from '@/data/data';
 import { useActiveSection } from '@/lib/use-active-section';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const sectionIds = navLinks.map((link) => link.href.replace('#', ''));
 
